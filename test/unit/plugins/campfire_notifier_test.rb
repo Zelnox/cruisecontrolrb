@@ -18,6 +18,7 @@ EOF
     @mock_build = Object.new
     @mock_build.stubs(:project).returns(@mock_project)
     @mock_build.stubs(:changeset).returns(SIMPLE_LOG_ENTRY)
+    @notifier = CampfireNotifier.new
   end
   
   def test_build_name  
@@ -25,8 +26,7 @@ EOF
   end
   
   def test_get_build_info
-    notifier = CampfireNotifier.new
     assert_equal ['Alexey Verkhovsky <alexey.verkhovsky@gmail.com>', "Test build"], 
-                 notifier.send(:get_build_info, @mock_build)
+                 @notifier.send(:get_build_info, @mock_build)
   end
 end
