@@ -31,7 +31,7 @@ ARGV.delete("--trace")
 # change default port from Rails' usual 3000 to 3333, so that it doesn't clash with other Rails apps 
 # running on the same box.
 if (ARGV & ['-p', '--port']).empty?
-  ARGV << '-p' << '80'
+  ARGV << '-p' << '3333'
 end
 
 # change default environment to production
