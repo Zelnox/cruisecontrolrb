@@ -71,11 +71,6 @@ class CampfireNotifier
   def build_fixed(build, previous_build)
     send_message build, FIXED_MESSAGES
   end
-  
-  def build_finished(build)
-    send_message build, ["o hai"]
-  end  
-    
 
   private
     # for git

@@ -12,12 +12,17 @@ committer Alexey Verkhovsky <alexey.verkhovsky@gmail.com> 1209921867 -0600
     a comment
 EOF
 
+MANUAL_LOG_ENTRY = <<EOF
+commit 7c65e
+author Masked Poney <masked.poney@unprehensibletaskforce.com> 1213734958 +0500
+    o hai, iz hax
+EOF
+
   def setup
     @mock_project = Object.new
     @mock_project.stubs(:name).returns("Test build")
     @mock_build = Object.new
     @mock_build.stubs(:project).returns(@mock_project)
-    @mock_build.stubs(:changeset).returns(SIMPLE_LOG_ENTRY)
     @notifier = CampfireNotifier.new
   end
   
@@ -26,7 +31,14 @@ EOF
   end
   
   def test_get_build_info
+    @mock_build.stubs(:changeset).returns(SIMPLE_LOG_ENTRY)
     assert_equal ['Alexey Verkhovsky <alexey.verkhovsky@gmail.com>', "Test build"], 
+                 @notifier.send(:get_build_info, @mock_build)
+  end
+  
+  def test_get_build_info_manually_requested
+    @mock_build.stubs(:changeset).returns(MANUAL_LOG_ENTRY)
+    assert_equal ['Masked Poney <masked.poney@unprehensibletaskforce.com>', "Test build"], 
                  @notifier.send(:get_build_info, @mock_build)
   end
 end
