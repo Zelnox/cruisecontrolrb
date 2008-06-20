@@ -19,13 +19,13 @@ module ProjectsHelper
   end
 
   def show_revisions_in_build(revisions)
-    return '' if revisions.empty?    
+    return '' if revisions.empty?
     if revisions.length == 1
       revision = revisions[0]
       text = "<div><span class='build_author'>#{revision.author}</span>" + ' committed the checkin</div>'
       # TODO: <br/> - should probably use css instead.
       text += '<br/>'
-      text +="<div>Comments:<br/>#{format_changeset_log(revision.message)}</div>" unless revision.message.empty?
+      # text +="<div>Comments:<br/>#{format_changeset_log(revision.message)}</div>" unless revision.message.empty?
       text
     else
       committers = revisions.collect { |rev| rev.author }.uniq
@@ -33,9 +33,9 @@ module ProjectsHelper
     end
   end
 
-  def revisions_in_build(build)    
+  def revisions_in_build(build)
     changeset = build.changeset
-    SourceControl::Subversion::ChangesetLogParser.new.parse_log changeset.split("\n")
+    SourceControl::Git::LogParser.new.parse changeset.split("\n")
   end
 
   # Re-map our project statuses to match the project statuses recognized
