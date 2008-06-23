@@ -13,7 +13,7 @@ module SourceControl
       end
       
       def to_s
-        "commit #{@number}\nauthor #{@author} #{@time.to_i} +0500\n    o hai, iz hax"
+        "commit #{@number}\nauthor #{@author} #{@time.to_i} +0500\n    o hai, iz hax\n"
       end
     end
   end
