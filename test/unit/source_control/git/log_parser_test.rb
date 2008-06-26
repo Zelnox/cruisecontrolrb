@@ -20,7 +20,11 @@ parent 7835c341686c6818178ef1fbb25e31a737127ff5
 author Thanh Vinh Tang <zelnox@gmail.com> 1213919568 -0400
 committer Thanh Vinh Tang <zelnox@gmail.com> 1213919568 -0400
 
-    Should resolve bug #7376. A cookie named referer is created the first time, usually on a job on a subdomain. Applying for it will redirect to main site, where another cookie of the same name overwrites the first one. Forcing all ref
+    Should resolve bug #7376. A cookie named referer is created the first time, usually on a job on a subdomain. 
+    Applying for it will redirect to main site, where another cookie of the same name overwrites the first one. 
+    Forcing all ref.
+    
+    More fancy commit message.
 
 commit 7835c341686c6818178ef1fbb25e31a737127ff5
 tree b56180b80b112d136aa1ed6a625e0ad5807bce9d
@@ -38,6 +42,18 @@ author Fred Ngo <fredngo@gmail.com> 1213895812 -0400
 committer Fred Ngo <fredngo@gmail.com> 1213895812 -0400
 
     Migrating to Capistrano 2.4.0
+EOF
+
+HACKED_LOG_ENTRY = <<EOF
+commit 5d5e4
+author Thanh Vinh Tang <zelnox@gmail.com> 1213919568 +0500
+    o hai, iz hax
+commit 7835c
+author Fred Ngo <fredngo@gmail.com> 1213895831 +0500
+    o hai, iz hax
+commit 9d99e
+author Fred Ngo <fredngo@gmail.com> 1213895812 +0500
+    o hai, iz hax
 EOF
 
     def test_parse_should_work
@@ -76,7 +92,12 @@ EOF
       parser = Git::LogParser.new
       changeset = parser.parse(COMPLICATED_LOG_ENTRY)
       assert_equal 3, changeset.length
-      # puts changeset.inspect
+    end
+    
+    def test_parse_hax_changeset
+      parser = Git::LogParser.new
+      changeset = parser.parse(HACKED_LOG_ENTRY)
+      assert_equal 3, changeset.length
     end
 
   end

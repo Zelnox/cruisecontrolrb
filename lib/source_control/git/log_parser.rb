@@ -9,6 +9,7 @@ module SourceControl
           line.chomp!
           line == "" ? next : process_line(line)
         end
+        @result << Git::Revision.new(@id, @author, @time) if @commit_message
         return @result
       end
 
@@ -19,7 +20,6 @@ module SourceControl
           @commit_message ||= true
 # TODO: we are not parsing out the commit message, and not displaying changesets on the dashboard for Git yet
 #          @commit_message += line.sub('    ', '')
-          add_current_revision_to_result
         else
           add_current_revision_to_result
           parse_line(line)
