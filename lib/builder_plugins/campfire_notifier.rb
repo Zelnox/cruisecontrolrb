@@ -87,8 +87,8 @@ class CampfireNotifier
       message = messages[rand(messages.size)] % get_build_info(build)
       
       room.speak message
-      room.speak failures_and_errors_if_any(build.output)
       room.speak build.url
+      room.speak BuildsHelper::failures_and_errors_if_any(build.output)
     end
 end
 
