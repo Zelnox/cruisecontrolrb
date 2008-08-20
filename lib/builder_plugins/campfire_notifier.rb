@@ -50,11 +50,12 @@ class CampfireNotifier
   ]
   
   BROKEN_MESSAGES = [
-    "IM IN UR SERVR FIXIN TEH BUILD CUZ %s BROEK %s",
-    "RLY RLY BUKKET... FAIL BUKKET! %s broke %s build",
-    "%s.break!(%s.build)",
-    "Ah, ç‘a l‘air que %s va aller s‘asseoir au banc des punitions pour 5 mins pour avoir cassé la gueule à %s.",
-    "NEVVVER GONNNNA GIIIIVE YOUUU UP, %s will turn around and make %s right"
+    "\nIM IN UR SERVR FIXIN TEH BUILD CUZ %s BROEK %s\n",
+    "\nRLY RLY BUKKET... FAIL BUKKET! %s broke %s build\n",
+    "\n%s.break!(%s.build)\n",
+    "\nAh, ç‘a l‘air que %s va aller s‘asseoir au banc des punitions pour 5 mins pour avoir cassé la gueule à %s.\n",
+    "\nNEVVVER GONNNNA GIIIIVE YOUUU UP, %s will turn around and make %s right\n",
+    "\nWhy so serious? %s can fix %s.\n"
   ]
   
   def initialize(project = nil)
@@ -86,9 +87,12 @@ class CampfireNotifier
       
       message = messages[rand(messages.size)] % get_build_info(build)
       
+      log = BuildLogParser.new(build.output)
       room.speak message
       room.speak build.url
-      room.speak BuildsHelper::failures_and_errors_if_any(build.output)
+      room.speak errors = log.failures_and_errors
+      room.speak problem = build.output if build.failed?
+      [message, build.url, errors, problem]
     end
 end
 
