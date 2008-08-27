@@ -98,10 +98,11 @@ EOF
       build = Build.new(project, 2)
       @mock_revision.stubs(:author).returns("Masked Poney")
       @mock_revision.stubs(:project).returns(@mock_project)
-      @mock_build.stubs(:failed?).returns(true)
-      @notifier.expects(:get_build_info).returns(['Masked Poney <masked.poney@unprehensibletaskforce.com>', "Test build"])
       build.stubs(:changeset).returns([@mock_revision])
       build.stubs(:url).returns("the build url")
+      @mock_previous_build = Object.new
+      @mock_previous_build.stubs(:failed?).returns(false)
+      @notifier.expects(:get_build_info).returns(['Masked Poney <masked.poney@unprehensibletaskforce.com>', "Test build"])
       
       assert_equal '2', build.label
       assert_equal true, build.failed?

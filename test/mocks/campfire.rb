@@ -31,5 +31,8 @@ module Tinder
       self.messages << message
     end
     
+    def paste(message)
+      self.messages << message
+    end
   end
 end

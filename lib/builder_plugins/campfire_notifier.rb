@@ -88,10 +88,13 @@ class CampfireNotifier
       message = messages[rand(messages.size)] % get_build_info(build)
       
       log = BuildLogParser.new(build.output)
-      room.speak message
-      room.speak build.url
-      room.speak errors = log.failures_and_errors
-      room.speak problem = build.output if build.failed?
+      errors = log.failures_and_errors
+      problem = build.output
+      
+      room.speak(message)
+      room.speak(build.url)
+      room.paste("errors.to_s")
+      # room.paste(problem.to_s) if build.failed?
       [message, build.url, errors, problem]
     end
 end
