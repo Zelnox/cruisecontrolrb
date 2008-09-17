@@ -93,8 +93,7 @@ class CampfireNotifier
       
       room.speak(message)
       room.speak(build.url)
-      room.paste("errors.to_s")
-      # room.paste(problem.to_s) if build.failed?
+      room.paste(errors)
       [message, build.url, errors, problem]
     end
 end
