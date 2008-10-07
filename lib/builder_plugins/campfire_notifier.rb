@@ -46,7 +46,18 @@ class CampfireNotifier
     "http://icanhascheezburger.files.wordpress.com/2007/02/superkitty1.jpg",
     "http://icanhascheezburger.files.wordpress.com/2007/10/128347709988750000duntwurryill.jpg",
     "http://icanhascheezburger.files.wordpress.com/2008/06/funny-pictures-balogna-first-name-nom.jpg",
-    "http://icanhascheezburger.files.wordpress.com/2008/06/funny-pictures-kitten-has-a-happy.jpg"
+    "http://icanhascheezburger.files.wordpress.com/2008/06/funny-pictures-kitten-has-a-happy.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2007/09/i-workin-fas-as-i-can-captn-i-canna-chanz-a-lawz-o-fizzix.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/07/funny-pictures-repair-cat-sees-your-problem.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/10/funny-pictures-electrician-cat-will-bill-you-later.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/08/funny-pictures-cat-is-troubleshooting-your-troubles.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/08/funny-pictures-cat-fixes-your-lols-for-you.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/08/funny-pictures-cat-proofreads-your-essays.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/06/funny-pictures-never-trust-a-feline-technician.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/02/funny-pictures-kittens-kiss.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2008/02/funny-pictures-kitten-plugs-in-tv.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2007/09/i-can-fix-thiz-sorta.jpg",
+    "http://icanhascheezburger.files.wordpress.com/2007/01/2004636948321281979_rs.jpg"
   ]
   
   BROKEN_MESSAGES = [
